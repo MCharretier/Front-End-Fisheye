@@ -1,39 +1,39 @@
-    function getPhotographers() {
+function getPhotographers() {
 
-        // Récupération de la data
-        return fetch('/data/photographers.json')
-            .then(response => { 
-                return response.json() 
-            })
-            .catch(error => { 
-                console.error( error ) 
-            })
+	// Récupération de la data
+	return fetch('/data/photographers.json')
+		.then(response => { 
+			return response.json(); 
+		})
+		.catch(error => { 
+			console.error(error); 
+		});
 
-    }
+}
 
-    function displayData(photographers) {
+function displayData(photographers) {
 
-        const $photographersSection = document.querySelector(".photographer_section");
+	const $photographersSection = document.querySelector('.photographer_section');
 
-        photographers.forEach((photographer) => {
+	photographers.forEach((photographer) => {
 
-            const Factory = new PhotographerFactory();
+		const Factory = new PhotographerFactory();
 
-            let userCard = Factory.createPhotographer(photographer, "userCard");
-            let $userCard = userCard.render();
+		const userCard = Factory.createPhotographer(photographer, 'userCard');
+		const $userCard = userCard.render();
 
-            $photographersSection.innerHTML += $userCard;
+		$photographersSection.innerHTML += $userCard;
 
-        });
-    };
+	});
+}
 
-    async function init() {
+async function init() {
 
-        // Récupère les datas des photographes
-        const { photographers } = await getPhotographers();
-        displayData(photographers);
+	// Récupère les datas des photographes
+	const { photographers } = await getPhotographers();
+	displayData(photographers);
 
-    };
+}
     
-    init();
+init();
     

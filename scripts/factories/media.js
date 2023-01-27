@@ -1,31 +1,31 @@
 const MediaFactory = function () {
 
-    this.createMedia = function (data, type) {
+	this.createMedia = function (data, type) {
 
-        let media;
+		let media;
 
-        if (type == "image") {
-            media = new Image(data);
-        }
-        else if (type == "video") {
-            media = new Video(data);
-        }
+		if (type === 'image') {
+			media = new image(data);
+		}
+		else if (type === 'video') {
+			media = new video(data);
+		}
 
-        return media;
-    }
+		return media;
+	};
 
-}
+};
 
-const Image = function (data) {
+const image = function (data) {
 
-    const { id, image, title, likes } = data;
+	const { id, image, title, likes } = data;
 
-    this.render = function () {
+	this.render = function () {
 
-        const media = `assets/images/medias/${image}`;
+		const media = `assets/images/medias/${image}`;
 
-        return (
-            `<article id="${id}">
+		return (
+			`<article id="${id}">
                 <a href="#" onclick="displayLightbox(this)" aria-label="${title}, closeup view">
                     <img class="media" src="${media}" alt="${title}">    
                 </a>
@@ -34,21 +34,21 @@ const Image = function (data) {
                     <button class="likes" aria-label="likes" tabindex="0">${likes} <img src="assets/icons/red-like.svg" alt="likes"></button>
                 </div>
             </article>`
-        );
+		);
 
-    }
-}
+	};
+};
 
-const Video = function (data) {
+const video = function (data) {
 
-    const { id, video, title, likes } = data;
+	const { id, video, title, likes } = data;
 
-    this.render = function () {
+	this.render = function () {
 
-        const media = `assets/images/medias/${video}`;
+		const media = `assets/images/medias/${video}`;
 
-        return (
-            `<article id="${id}">
+		return (
+			`<article id="${id}">
                 <a href="#" onclick="displayLightbox(this)" aria-label="${title}, closeup view">
                     <video class="media" preload="metadata" aria-label="${title}">
                         <source src="${media}" type="video/mp4"></source>
@@ -59,7 +59,7 @@ const Video = function (data) {
                     <button class="likes">${likes} <img src="assets/icons/red-like.svg" alt="likes"></button>
                 </div>
             </article>`
-        );
+		);
 
-    }
-}
+	};
+};
