@@ -354,8 +354,13 @@ form textarea {
 #lightbox-image {
     width: 100%;
     height: 100%;
-    object-fit: cover;
     display: none;
+}
+
+#lightbox-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 #lightbox-video {
@@ -365,7 +370,7 @@ form textarea {
     display: none;
 }
 
-#lightbox #lightbox-title {
+#lightbox #lightbox-title h2 {
     position: absolute;
     bottom: -60px;
     left: 0;

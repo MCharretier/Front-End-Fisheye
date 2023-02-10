@@ -4,8 +4,7 @@
     <title>Fisheye - photographe </title>
     <meta charset="utf-8">
     <link rel="icon" type="image/png" href="assets/favicon.png">
-    <link href="css/style.css" rel="stylesheet" type="text/css" />
-    <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet" type="text/css">
     <script src="/scripts/factories/photographer.js" defer></script>
     <script src="/scripts/factories/media.js" defer></script>
     <script src="/scripts/pages/photographer.js" defer></script>
@@ -16,10 +15,10 @@
   <body>
     <header>
       <a href="index.html" id="home-link" aria-label="Retour à la page d'accueil">
-        <img src="assets/images/logo.png" alt="Fisheye Home page" class="logo" />
+        <img src="assets/images/logo.png" alt="Fisheye Home page" class="logo">
       </a>
     </header>
-    <main role="main">
+    <main>
       <div class="photograph-header"></div>
       <div class="sort">
         <p class="sort-text">Trier par </p>
@@ -34,15 +33,15 @@
       </div>
       <div class="photograph-medias"></div>
     </main>
-    <div id="contact_modal" role="dialog" aria-modal="true" aria-labelledby="modal_title" aria-hidden="true" aria-modal="true">
+    <div id="contact_modal" role="dialog" aria-modal="true" aria-labelledby="modal_title" aria-hidden="true">
       <div class="modal">
         <header>
           <h1 id="modal_title">Contactez-moi <br></h1>
-          <button type="button" role="button" aria-labelledby="close_modal" onclick="closeModal()">
-            <img id="close_modal" src="./assets/icons/close.svg" alt="Close Contact form" />
+          <button type="button" aria-labelledby="close_modal" onclick="closeModal()">
+            <img id="close_modal" src="./assets/icons/close.svg" alt="Close Contact form">
           </button>
         </header>
-        <form role="form" aria-describedby="modal_title">
+        <form aria-describedby="modal_title">
           <div>
             <label id="label_firstname" for="firstname">Prénom</label>
             <input type="text" name="firstname" id="firstname" aria-labelledby="label_firstname" aria-required="false">
@@ -51,7 +50,7 @@
             <label id="label_email" for="email">Email</label>
             <input type="email" name="email" id="email" aria-labelledby="label_email" aria-required="false">
             <label id="label_message" for="message">Votre message</label>
-            <textarea name="message" id="message" aria-labelledby="label_message" aria-required="false" columns="30" rows="10"></textarea>
+            <textarea name="message" id="message" aria-labelledby="label_message" aria-required="false" rows="10"></textarea>
           </div>
           <button type="submit" class="submit_button" aria-label="Send">Envoyer</button>
         </form>
@@ -59,18 +58,18 @@
     </div>
     <div id="lightbox" role="dialog" aria-modal="true" aria-label="Image closeup view">
       <div class="lightbox-content">
-        <button id="lightbox-close" type="button" role="button" aria-labelledby="close-lightbox" onclick="closeLightbox()">
-          <img id="close-lightbox" src="./assets/icons/close-lightbox.svg" alt="Close dialog" />
+        <button id="lightbox-close" type="button" aria-labelledby="close-lightbox" onclick="closeLightbox()">
+          <img id="close-lightbox" src="./assets/icons/close-lightbox.svg" alt="Close dialog">
         </button>
         <button id="prev-button" aria-label="Previous image" onclick="previousLightbox()">
           <img src="./assets/icons/previous-arrow.svg" alt="Previous image">
         </button>
-        <img src="" alt="" id="lightbox-image">
+        <div id="lightbox-image"></div>
         <video class="media" autoplay loop id="lightbox-video"></video>
         <button id="next-button" aria-label="Next image" onclick="nextLightbox()">
           <img src="./assets/icons/next-arrow.svg" alt="Next image">
         </button>
-        <h1 id="lightbox-title"></h1>
+        <div id="lightbox-title"></div>
       </div>
     </div>
   </body>

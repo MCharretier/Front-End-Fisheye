@@ -14,22 +14,40 @@ function displayLightboxContent(index) {
 	// On affiche soit une image soit une video en fonction du type de media
 	if (type === 'image') {
 		$lightboxImage.style.display = 'block';
-		$lightboxImage.src = `./assets/images/medias/${medias[index].image}`;
-		$lightboxImage.alt = medias[index].title;
+		$lightboxImage.appendChild(
+			Object.assign(
+				document.createElement('img'), { 
+					src : `./assets/images/medias/${medias[index]?.image}`,
+					alt : medias[index]?.title
+				}
+			)
+		);
 	}
 	else if (type === 'video') {
 		$lightboxVideo.style.display = 'block';
-		$lightboxVideo.innerHTML = `<source src="./assets/images/medias/${medias[index].video}" type="video/mp4"></source>`;
-		$lightboxVideo.setAttribute('aria-label', medias[index].title);
+		$lightboxVideo.appendChild(
+			Object.assign(
+				document.createElement('source'), { 
+					src : `./assets/images/medias/${medias[index]?.video}`,
+					type : 'video/mp4'
+				}
+			)
+		);
+		$lightboxVideo.setAttribute('aria-label', medias[index]?.title);
 	} 
-	$lightboxTitle.innerHTML = medias[index].title;
+	$lightboxTitle.appendChild(
+		Object.assign(
+			document.createElement('h2'), { 
+				innerHTML : medias[index]?.title,
+			}
+		)
+	);
 }
 
 function clearLightboxContent() {
 
 	// On retire l'image et ses attributs
-	$lightboxImage.src = '';
-	$lightboxImage.alt = '';
+	$lightboxImage.innerHTML = '';
 	$lightboxImage.style.display = 'none';
 
 	// On retire la vidéo et ses attributs
